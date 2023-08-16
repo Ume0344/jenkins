@@ -26,3 +26,12 @@
 *Continuous Deployment*
 
 - Deployment -> Operate (to ensure that the applications are available, responsive, and performing well for end users) -> Monitor ( to gain insights into how the applications are behaving in production and to identify any deviations from expected behavior)
+
+
+<center><h2><b>Jenkins</b></h2></center>
+
+**Install Jenkins on Ubuntu 18.04.6**
+
+Please run the follwoing command to install jenkins;
+
+`chmod +x jenkins_installation.sh && ./jenkins_installation.sh`
