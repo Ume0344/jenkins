@@ -60,3 +60,78 @@ Please run the following command to install jenkins;
 - Go to build steps -> Execute shell -> Paste this command to run go program `/usr/local/go/bin/go run hello.go`
 
 - Build the job. 
+
+**[Buidling Jenkins Pipeline through Groovy Scripts](https://www.jenkins.io/doc/pipeline/tour/hello-world/)**
+
+We can create a pipeline through groovy scripts on UI. 
+- On Dashboard, New item -> Pipeline -> ok -> Pipeline (Pipeline script) -> paste the script there -> save. Build the pipeline. 
+
+A basic groovy script is written to run docker container with golang image
+```
+/* Requires the Docker Pipeline plugin */
+pipeline {
+    agent { docker { image 'golang:1.21.0-alpine3.18' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'go version'
+            }
+        }
+    }
+}
+```
+
+Add jenkins user to docker group 
+
+`sudo usermod -a -G docker jenkins`
+
+**Creating Jenkinsfile and using it from GitHub respository to build pipeline**
+
+- We just have to add Jenkinsfile to our repository and select *Pipeline script from SCM*. 
+
+
+**Types of Pipelines**
+
+*Declarative* - Does not depend on groovey scripting
+
+*Scripted* - Based on groovey script
+
+**DevOps Approach to create Pipeline**
+- Always create a Jenkinsfile in your project.
+- Create a job on Jenkins UI to pull git repository (containing Jenkinsfile) and run the Jenkinsfile.
+
+**DevOps Interview Question**
+- Difference between agile and devops (Agile focuses on small, incremental and rapid release of products with customer feedback informs of sprints and releasing/integrating the product every two weeks and devops is continuous integration and delivery through automated pipelines that we now have multiple releases of product a day because of devops)
+- Benefits of DevOps - Continuous delivery of software, less complex problems to man age, early detection and correction of bugs. Faster delivery of features, improved communication among different teams.
+- How to implement devops in a project? 
+    - Stage 1 - Analyze the existing process and implementation of project, identify improvment areas and construct the roadmap for implementation.
+    - Stage 2 - A proof of concept is done and shred with customer for the approval. After getting approval, actual implemntation can be carried out.
+    - Stage 3 - Implement the devops phases step by step; version control -> integration -> testing -> deploying -> delivery -> monitoring.
+
+- Difference between continuous delivery and continuous deployment?
+
+- what is configuration management in DevOps?
+
+- How continuous monitorying helps in maintaining entire architecture of the system?
+    - Detecting, identifying and reporting any faults in entire infrtructure of the system.
+    - Monitors the status of servers and applications.
+    - Ensures that services are running properly.
+
+- What is infrastructure as code?
+
+- What is Jenkins.
+- Key aspects of jenkins pipeline?
+    - Pipeline
+    - Node
+    - Step
+    - Stage
+
+- Types of pieplines in jenkins (Declarative vs scripted)
+
+- How we can copy jenkins from one server to another.
+
+- Security mechanisms jenkins uses to authenticate users.
+
+- restarting the jenkins 
+    - (jenkins url)/restart  # forces to restart causing all builds to stop
+    - (jenkins url)/safeRestart # let builds finish and then restarts
