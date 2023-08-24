@@ -19,5 +19,20 @@ pipeline {
                 sh 'go build'
             } 
         }
+        stage('Test') {
+            steps {
+                echo "Linting"
+                sh 'golint ./...'
+
+                echo "Formatting"
+                sh 'gofmt -s -w .'
+
+                echo "Vetting"
+                sh 'go vet ./...'
+
+                echo "Unit Testing"
+                sh 'go test -cover ./...'
+            }
+        }
     }
 }

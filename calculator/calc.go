@@ -5,6 +5,10 @@ import (
 	"fmt"
 )
 
+// Calc is a basic Calculator
+// Param x: a number of int type
+// Param y: a number of int type
+// returns z, err: result of requested operation and error if it occurs.
 func Calc(operator string, x int, y int) (int, error) {
 	var z int
 
