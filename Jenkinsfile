@@ -1,11 +1,25 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'golang:1.21.0-alpine3.18' } }
+    agent none
     stages {
+        stage('Pre-Build') {
+            agent { 
+                docker { 
+                    image 'golang:1.21.0-alpine3.18' 
+                    } 
+                }
+            steps {
+                echo "Installing dependencies to run go code"
+                sh 'go version'
+                sh 'go get -u golang.org/x/lint/golint'
+            }
+
+        }
         stage('build') {
             steps {
-                sh 'go version'
-            }
+                echo "Compiling and building"
+                sh 'go build'
+            } 
         }
     }
 }
