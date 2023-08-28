@@ -89,6 +89,13 @@ Add jenkins user to docker group
 
 - We just have to add Jenkinsfile to our repository and select *Pipeline script from SCM*. 
 
+- Whenever we use tool, we need to configure the tool in Manage Jenkins.
+    - Manage Jenkins -> Tool Configuration -> Select Go tool -> Add Go installation -> Save.
+
+**Add Email Notifications for every Build**
+
+- Configure email address and apppassword(gmail) in Manage -> Configure -> Email Notification. 
+- Add a post build section in Jenkinsfile.
 
 **Types of Pipelines**
 
