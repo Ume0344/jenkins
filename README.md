@@ -1,42 +1,13 @@
-**[Tutorial](https://www.youtube.com/watch?v=FX322RVNGj4&t=104s)**
-
-**Agile Model**
-
-- Project is divided into several sprints (2 weeks). In each sprint, we have product backlogs, these backlogs are reviewed and assigned to the development team in spint planning. In  sprint, devlopement team plan, code, test and deliver the product features (daily scrum/standup meeting). Then after two weeks, these features are sent to client for review to get their feedback. 
-- Client requirements are understood better through constant feedback and product are delivered faster.
-- Disadvantages - Products are tested on only developer test environment not on production environment. And, developers and operations work separately. When product fails in production, operation team sends the product back to devlopment team to find the issue which causes delay in projects. Here comes, DevOps.
-
-**DevOps Phases**
-
-- Plan
-- Code (Git)
-- Build
-- Test
-- Integrate (Jenkins)
-- Deploy
-- Operate (Ansible)
-- Monitor (Prometheus)
-
-**DevOps Process**
-
-*Continuous Integration*
-
-- Plan -> Code -> Build -> Test
-
-- If some bugs occurs, it is commuincated to devlopment team.
-
-*Continuous Deployment*
-
-- Deployment -> Operate (to ensure that the applications are available, responsive, and performing well for end users) -> Monitor ( to gain insights into how the applications are behaving in production and to identify any deviations from expected behavior)
-
-
 <center><h2><b>Jenkins</b></h2></center>
 
-**Install Jenkins on Ubuntu 18.04.6**
-
-Please run the following command to install jenkins;
+This repository is a practice to learn Jenkins. 
+To install Jenkins, please run;
 
 `chmod +x jenkins_installation.sh && ./jenkins_installation.sh`
+
+Create a new item to create empty pipeline in Jenkins UI and add url of this repository to  Pipeline script from SCM section in configuration of pipeline.
+
+**[Tutorial](https://www.youtube.com/watch?v=FX322RVNGj4&t=104s)**
 
 **Jenkins Pipeline**
 
@@ -97,17 +68,37 @@ Add jenkins user to docker group
 - Configure email address and apppassword(gmail) in Manage -> Configure -> Email Notification. 
 - Add a post build section in Jenkinsfile.
 
-**Types of Pipelines**
+<center><h2><b>DevOps Interview Questions</b></h2></center>
 
-*Declarative* - Does not depend on groovey scripting
+**Agile Model**
 
-*Scripted* - Based on groovey script
+- Project is divided into several sprints (2 weeks). In each sprint, we have product backlogs, these backlogs are reviewed and assigned to the development team in spint planning. In  sprint, devlopement team plan, code, test and deliver the product features (daily scrum/standup meeting). Then after two weeks, these features are sent to client for review to get their feedback. 
+- Client requirements are understood better through constant feedback and product are delivered faster.
+- Disadvantages - Products are tested on only developer test environment not on production environment. And, developers and operations work separately. When product fails in production, operation team sends the product back to devlopment team to find the issue which causes delay in projects. Here comes, DevOps.
 
-**DevOps Approach to create Pipeline**
-- Always create a Jenkinsfile in your project.
-- Create a job on Jenkins UI to pull git repository (containing Jenkinsfile) and run the Jenkinsfile.
+**DevOps Phases**
 
-**DevOps Interview Question**
+- Plan
+- Code (Git)
+- Build
+- Test
+- Integrate (Jenkins)
+- Deploy
+- Operate (Ansible)
+- Monitor (Prometheus)
+
+**DevOps Process**
+
+*Continuous Integration*
+
+- Plan -> Code -> Build -> Test
+
+- If some bugs occurs, it is commuincated to devlopment team.
+
+*Continuous Deployment*
+
+- Deployment -> Operate (to ensure that the applications are available, responsive, and performing well for end users) -> Monitor ( to gain insights into how the applications are behaving in production and to identify any deviations from expected behavior)
+
 - Difference between agile and devops (Agile focuses on small, incremental and rapid release of products with customer feedback informs of sprints and releasing/integrating the product every two weeks and devops is continuous integration and delivery through automated pipelines that we now have multiple releases of product a day because of devops)
 - Benefits of DevOps - Continuous delivery of software, less complex problems to man age, early detection and correction of bugs. Faster delivery of features, improved communication among different teams.
 - How to implement devops in a project? 
@@ -142,3 +133,13 @@ Add jenkins user to docker group
 - restarting the jenkins 
     - (jenkins url)/restart  # forces to restart causing all builds to stop
     - (jenkins url)/safeRestart # let builds finish and then restarts
+
+**Types of Pipelines**
+
+*Declarative* - Does not depend on groovey scripting
+
+*Scripted* - Based on groovey script
+
+**DevOps Approach to create Pipeline**
+- Always create a Jenkinsfile in your project.
+- Create a job on Jenkins UI to pull git repository (containing Jenkinsfile) and run the Jenkinsfile.
